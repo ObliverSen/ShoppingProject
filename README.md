@@ -6,5 +6,5 @@
 效果图
  <img src="https://github.com/ObliverSen/ShoppingProject/blob/master/picture/shopping.webp" width="40%"  height="60%" alt="还在路上，稍等..."/> 
  
- <img src="https://github.com/YourAcountName/ProjectName/blob/master/GifName.gif" width=200 height=360 />
+ <img src="https://github.com/ObliverSen/ShoppingProject/blob/master/picture/ezgif.com-video-to-gif.mp4" width=200 height=360 />
  
