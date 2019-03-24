@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/shopping_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+         滑动的bar
+    -->
+    <LinearLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/tabs_recyclerView"
+            android:layout_width="0dp"
+            android:layout_weight="8"
+            android:padding="4dp"
+            android:layout_height="match_parent" />
+
+        <FrameLayout
+
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
+            <ImageView
+
+                android:id="@+id/select_category_img"
+                android:layout_width="wrap_content"
+                android:layout_height="8dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/icon_arrow_down" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line_view"
+        android:layout_width="match_parent"
+        android:background="@color/colorAccent"
+        android:layout_height="1dp"/>
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+
+        android:id="@+id/xRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+
+
+</LinearLayout>
