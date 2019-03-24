@@ -5,6 +5,8 @@
 
 效果图
 
+[image](https://github.com/ObliverSen/ShoppingProject/blob/master/picture/ezgif.com-optimize.gif)
+
+
  
- <img src=“https://github.com/ObliverSen/ShoppingProject/blob/master/picture/ezgif.com-optimize.gif" width=200 height=360 />
  
