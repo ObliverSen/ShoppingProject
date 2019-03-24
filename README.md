@@ -5,7 +5,7 @@
 
 效果图
 
-![image](https://github.com/ObliverSen/ShoppingProject/blob/master/picture/ezgif.com-optimize.gif)
+![image](https://github.com/ObliverSen/ShoppingProject/blob/master/picture/ezgif.com-resize.gif)
 
 
  
