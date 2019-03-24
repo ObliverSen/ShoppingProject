@@ -17,7 +17,7 @@ import com.bean.TabTitlesBean;
 import com.bean.TabTitlesData;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.utils.LocalJsonResolutionUtils;
-import com.widget.BouncingTitleMenu;
+import com.widget.BouncingTabMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,7 +128,7 @@ public class ShoppingActivity  extends AppCompatActivity
     }
 
     // test
-    BouncingTitleMenu menu;
+    BouncingTabMenu menu;
     boolean isOpen = false;
     @Override
     public void onClick(View v) {
@@ -142,8 +142,10 @@ public class ShoppingActivity  extends AppCompatActivity
                     isOpen = true;
                     Log.e("viewHeight","--> "+titleLayout.getMeasuredHeight());
 
-                    menu = BouncingTitleMenu.BouncingView(linearLayout,0,titleLayout.getMeasuredHeight())
+                    menu = BouncingTabMenu.BouncingView(linearLayout,0,titleLayout.getMeasuredHeight())
                             .showView();
+                    //
+                    menu.loadData().showDatoToView();
                 }else {
                     isOpen = false;
                     menu.dismiss();
