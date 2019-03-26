@@ -30,6 +30,16 @@ public class TabTitlesData {
 
    private String name;
 
+   private boolean isSelect = false;
+
+    public void setSelect(boolean select) {
+        isSelect = select;
+    }
+
+    public boolean isSelect() {
+        return isSelect;
+    }
+
     public String getName() {
         return name;
     }

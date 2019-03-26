@@ -15,12 +15,13 @@ import com.adapter.TabAdapter;
 import com.bean.ShoppingContentBean;
 import com.bean.TabTitlesBean;
 import com.bean.TabTitlesData;
-import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.utils.LocalJsonResolutionUtils;
 import com.widget.BouncingTabMenu;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 /**
  * Created by zhoushaosen on 2019/3/24.
@@ -35,22 +36,21 @@ import java.util.List;
 public class ShoppingActivity  extends AppCompatActivity
                 implements View.OnClickListener{
 
-    // bar
     private RecyclerView recyclerView;
     private TabAdapter tabAdapter;
     private ImageView imageView;
     private List<String> tabsTitlesList;
     private List<TabTitlesData>  dataListTabTiles;
 
-    // content
     private View view;
     private LinearLayout titleLayout;
     private LinearLayout linearLayout;
-    private XRecyclerView xRecyclerView;
+    private RecyclerView xRecyclerView;
     private ShappingContentAdapter shappingContentAdapter;
     private List<String> listContent;
 
     private ShoppingContentBean bean;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -99,7 +99,7 @@ public class ShoppingActivity  extends AppCompatActivity
 
         //setTitlesInfo();
         jsonData();
-        tabAdapter=new TabAdapter(this,dataListTabTiles);
+        tabAdapter=new TabAdapter(this, dataListTabTiles,recyclerView);
         recyclerView.setAdapter(tabAdapter);
     }
 
@@ -142,8 +142,11 @@ public class ShoppingActivity  extends AppCompatActivity
                     isOpen = true;
                     Log.e("viewHeight","--> "+titleLayout.getMeasuredHeight());
 
-                    menu = BouncingTabMenu.BouncingView(linearLayout,0,titleLayout.getMeasuredHeight())
-                            .showView();
+                    menu = BouncingTabMenu.BouncingView(linearLayout,
+                                            0,
+                                            titleLayout.getMeasuredHeight(),
+                                            recyclerView,
+                                            tabAdapter).showView();
                     //
                     menu.loadData().showDatoToView();
                 }else {

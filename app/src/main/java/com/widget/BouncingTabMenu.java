@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 
+import com.adapter.AllTabAdapter;
 import com.adapter.TabAdapter;
 import com.bean.TabTitlesData;
 import com.shopping.R;
@@ -30,13 +31,22 @@ public class BouncingTabMenu implements BouncingTabLoadDataArea.CallBack {
 
     private int height;
 
-    // view
+    //外部 view
+    private RecyclerView tabRecyclerView;
+    private TabAdapter outerAdapter;
+
+    //
     private RecyclerView recyclerView;
-    private TabAdapter tabAdapter;
+    private AllTabAdapter tabAdapter;
 
 
-    private BouncingTabMenu(@NonNull  View view, int layId, int height) {
+    private BouncingTabMenu(@NonNull  View view,
+                            int layId, int height,
+                            RecyclerView tabRecyclerView,
+                            TabAdapter outerAdapter) {
 
+        this.tabRecyclerView = tabRecyclerView;
+        this.outerAdapter = outerAdapter;
         this.viewContext = view;
         this.height = height;
 
@@ -72,9 +82,12 @@ public class BouncingTabMenu implements BouncingTabLoadDataArea.CallBack {
      *   public
      * **/
 
-    public static BouncingTabMenu BouncingView(@NonNull  View view, int layId, int height) {
+    public static BouncingTabMenu BouncingView(@NonNull  View view,
+                                               int layId, int height,
+                                               RecyclerView tabRecyclerView,
+                                               TabAdapter tabAdapter) {
 
-        return new BouncingTabMenu(view,layId,height);
+        return new BouncingTabMenu(view,layId,height,tabRecyclerView,tabAdapter);
     }
 
     public BouncingTabMenu showView() {
@@ -85,7 +98,7 @@ public class BouncingTabMenu implements BouncingTabLoadDataArea.CallBack {
         viewGroup.addView(viewContent,lp);
 
         FrameLayout.LayoutParams  layoutParams = (FrameLayout.LayoutParams) viewContent.getLayoutParams();
-        layoutParams.setMargins(0,116,0,0);
+        layoutParams.setMargins(0,height,0,0);
         viewContent.setLayoutParams(layoutParams);
         return this;
     }
@@ -93,6 +106,9 @@ public class BouncingTabMenu implements BouncingTabLoadDataArea.CallBack {
     public void dismiss(){
         viewGroup.removeView(viewContent);
         viewContent = null;
+
+        recyclerView = null;
+        outerAdapter = null;
     }
 
     //加载数据区
@@ -107,7 +123,16 @@ public class BouncingTabMenu implements BouncingTabLoadDataArea.CallBack {
 
         GridLayoutManager manager=new GridLayoutManager(viewContext.getContext(),6);
 
-        tabAdapter =new TabAdapter(viewContext.getContext(),dataListTabTiles);
+        tabAdapter =new AllTabAdapter(viewContext.getContext(), dataListTabTiles,
+                new AllTabAdapter.CallBackPosition() {
+                    @Override
+                    public void selectPosition(int position) {
+
+                        // update
+                        tabRecyclerView.smoothScrollToPosition(position);
+                        outerAdapter.textColorUpdate(position);
+                    }
+                });
 
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(tabAdapter);
