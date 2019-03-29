@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/whites" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/tab_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:text="标题"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/brand_follow_tv_titlebar"
+                    android:layout_width="56dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right|center_vertical|center_horizontal|center"
+                    android:layout_marginRight="60dp"
+                    android:gravity="center"
+                    android:text="哈哈"
+                    android:background="@drawable/bg_ff3636_4dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_center_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:text="哈哈哈哈哈"
+                    android:textColor="#ff333333"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/whites">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/whites" />
+
+                <View
+                    android:id="@+id/view_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/normal_bg_color" />
+            </FrameLayout>
+
+            <FrameLayout
+
+                android:id="@+id/fl_content_indicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:background="@color/colorAccent">
+
+                <net.lucode.hackware.magicindicator.MagicIndicator
+                    android:id="@+id/magic_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/tv_title"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="top|center_vertical|center_horizontal|center"
+                    android:background="@android:color/white" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/normal_bg_color" />
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</LinearLayout>

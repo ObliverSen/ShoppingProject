@@ -62,7 +62,9 @@ public class ShoppingActivity  extends AppCompatActivity
         //
         showTitles();
         showSelectionContent();
+        
     }
+
 
     public void initView() {
 
